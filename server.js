@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
+var path = require('path');
 
 
 //App middleware -------------------------------------------/
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //Handlebars config ---------------------------------------/
 app.engine('handlebars', exphbs({
