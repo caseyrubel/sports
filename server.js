@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
+var path = require('path');
 
 
 //App middleware -------------------------------------------/
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //Handlebars config ---------------------------------------/
 app.engine('handlebars', exphbs({
@@ -21,13 +22,15 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 //Route config -------------------------------------------/
-require('./controllers/sports_controller.js');
+routes = require('./controllers/sports_controller.js');
 
 //Database config ---------------------------------------/
-global.db = require('./models');
+var db = require('./models');
 
 //Port config ---------------------------------------------------/
 var PORT = process.env.PORT || 3000;
+
+app.use("/", routes)
 
 //Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
