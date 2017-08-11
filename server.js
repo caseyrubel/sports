@@ -4,7 +4,12 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
+var session = require('express-session')
+var cookieParser = require('cookie-parser')
 var path = require('path');
+var passport = require('passport');
+var passportConfig = require('./config/passport');
+var flash = require('connect-flash');
 
 
 //App middleware -------------------------------------------/
@@ -14,6 +19,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(cookieParser());
+app.use(flash());
+app.use(session({
+    secret: 'asdfqwer',
+    resave: false,
+    saveUninitialized: true,
+    // cookie: { secure: true }
+}))
+app.use(passport.initialize())
+app.use(passport.session());
+
 
 //Handlebars config ---------------------------------------/
 app.engine('handlebars', exphbs({
