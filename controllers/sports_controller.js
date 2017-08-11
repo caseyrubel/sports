@@ -2,7 +2,6 @@ var path = require("path");
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
-var news = require('../public/js/news.js')
 const GoogleNewsRss = require('google-news-rss');
 const googleNews = new GoogleNewsRss();
 
