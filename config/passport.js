@@ -1,6 +1,7 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 var db = require('../models');
+var bcrypt = require('bcrypt');
 
 // Serialize sessions
 passport.serializeUser(function(user, done) {
@@ -24,18 +25,24 @@ passport.use(new LocalStrategy({
     function(req, username, password, done) {
         console.log(username)
         console.log(password);
-        db.User.findOne({ email: username }, function(err, user) {
-            console.log(user);
-            if (err) { return done(err); }
-            if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
-            }
-            if (!user.validPassword(password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-            }
-            return done(null, user);
-        });
-    }
-));
+        db.User.findOne({ where: { email: username } }).then(
+            function(results) {
+                console.log(results.password);
+                if (!results) {
+                    return done(null, false, { message: 'Incorrect username.' });
+                }
+                console.log('yes')
+                bcrypt.compare(password, results.password, function(err, isMatch) {
+                    if (err) console.log(err)
+                    if (isMatch) {
+                        console.log('sign')
+                        return done(null, user)
+                    } else {
+                        return done(null, false)
+                    }
+                    return done(null, user);
+                });
+            })
+    }));
 
 module.exports = passport;

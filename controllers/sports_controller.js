@@ -12,9 +12,15 @@ router.get("/", function(req, res) {
             res.render("index");
         });
 });
+router.get("/home", function(req, res) {
+    db.User.findAll({})
+        .then(function() {
+            res.render("index");
+        });
+});
 router.post('/login',
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/home',
         failureRedirect: '/',
         failureFlash: true
     })

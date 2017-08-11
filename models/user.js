@@ -26,6 +26,19 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         }
     }, {
+        classMethods: {
+            validPassword: function(password, passwd, done, user) {
+                bcrypt.compare(password, passwd, function(err, isMatch) {
+                    if (err) console.log(err)
+                    if (isMatch) {
+                        return done(null, user)
+                    } else {
+                        return done(null, false)
+                    }
+                });
+            }
+        }
+    }, {
         dialect: 'mysql'
     });
     return User;
