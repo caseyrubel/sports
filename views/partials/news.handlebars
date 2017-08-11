@@ -1,0 +1,23 @@
+
+<div class="row">
+  {{#each news }}
+    <div class="news col s12 m6">
+      <div class="card horizontal left-align">
+        <div class="card-image">
+          <img src="{{thumbnailUrl}}">
+        </div>
+        <div class="card-stacked">          
+          <div class="card-content">              
+            <p class="flow-text">{{title}}</p>
+            <p class="hide-on-small-only">{{description}}</p>              
+          </div>
+          <div class="card-action">
+            <p>{{pubDate}}</p>
+            <a target="_blank" href="{{shortLink}}">Full article at {{publisher}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
