@@ -26,22 +26,13 @@ passport.use(new LocalStrategy({
         console.log(username)
         console.log(password);
         db.User.findOne({ where: { email: username } }).then(
-            function(results) {
-                console.log(results.password);
-                if (!results) {
-                    return done(null, false, { message: 'Incorrect username.' });
+            function(user) {
+                console.log(user.password);
+                if (password != user.password) {
+                    return false;
+                } else {
+                    return user;
                 }
-                console.log('yes')
-                bcrypt.compare(password, results.password, function(err, isMatch) {
-                    if (err) console.log(err)
-                    if (isMatch) {
-                        console.log('sign')
-                        return done(null, user)
-                    } else {
-                        return done(null, false)
-                    }
-                    return done(null, user);
-                });
             })
     }));
 

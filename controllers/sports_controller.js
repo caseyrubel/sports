@@ -4,12 +4,20 @@ var router = express.Router();
 var passport = require('../config/passport.js')
     // Import the model (cat.js) to use its database functions.
 var db = require("../models");
+var StattleshipAPI = require('node-stattleship');
+var stattleship = new StattleshipAPI('9798a298a32d764f862028f5489e5276');
+var params = {
+    on: "today"
+};
 // Routes
 // =============================================================
 router.get("/", function(req, res) {
     db.User.findAll({})
         .then(function() {
-            res.render("index");
+            stattleship.games('baseball', 'mlb', params).then(function(games) {
+                var hbsObject = { stuff: games };
+                res.render('index', hbsObject);
+            });
         });
 });
 router.get("/home", function(req, res) {
@@ -48,14 +56,4 @@ router.get("/:id", function(req, res) {
             res.json(db);
         });
 });
-// router.get("/api/posts/:id", function(req, res) {
-//     db.User.findOne({
-//             where: {
-//                 id: req.params.email
-//             }
-//         })
-//         .then(function(dbPost) {
-//             res.json(dbPost);
-//         });
-// });
 module.exports = router;
