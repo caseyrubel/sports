@@ -18,12 +18,34 @@ router.get("/", function(req, res) {
         throw err;
     });
 });
-router.get("/home", function(req, res) {
-     console.log(news);
-    // console.log("this is my bacon", bacon);
-    res.render("index");
-});
+// router.post('/login',
+// passport.authenticate('local', {
+//     successRedirect: '/home',
+//     failureRedirect: '/',
+//     failureFlash: true
+// })
+// );
 router.post("/", function(req, res) {
-    console.log(req.body.first_name);
-})
+db.User.create({
+    firstName: req.body.first_name,
+    lastName: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password,
+    teamOne: req.body.teamOne,
+    teamTwo: req.body.teamTwo,
+    teamThree: req.body.teamThree
+}).then(function() {
+    res.redirect("/");
+});
+});
+router.get("/:id", function(req, res) {
+db.User.findOne({
+        where: {
+            email: req.params.id
+        }
+    })
+    .then(function(db) {
+        res.json(db);
+    });
+});
 module.exports = router;
