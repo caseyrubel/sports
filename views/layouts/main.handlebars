@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Used as an example only to position the footer at the end of the page.
     You can delete these styles or move it to your custom css file -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <style>
       body {
         display: flex;
@@ -26,5 +29,19 @@
   </head>
   <body>
     {{{ body }}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      var grid = $('.row').isotope({
+        // options... 
+        itemSelector: '.news',
+        masonry: {
+          horizontalOrder: true
+        }
+      });
+      // layout Isotope after each image loads
+      grid.imagesLoaded().progress( function() {
+        grid.isotope('layout');
+      });
+    </script>
   </body>
 </html>

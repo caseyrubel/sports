@@ -1,21 +1,23 @@
 {
-    "name": "sports",
-    "version": "1.0.0",
-    "description": "app to let you follow your favorite teams",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
-    "author": "group",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.15.2",
-        "express": "^4.14.0",
-        "express-handlebars": "^3.0.0",
-        "method-override": "^2.3.6",
-        "mysql": "^2.11.1",
-        "mysql2": "^1.4.0",
-        "sequelize": "^3.23.6"
-    }
+  "name": "sports",
+  "version": "1.0.0",
+  "description": "app to let you follow your favorite teams",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "group",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "google-news-rss": "^0.2.0",
+    "method-override": "^2.3.6",
+    "mysql": "^2.11.1",
+    "mysql2": "^1.4.0",
+    "newspaperjs": "^1.0.6",
+    "sequelize": "^3.23.6"
+  }
 }

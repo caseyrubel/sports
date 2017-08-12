@@ -1,0 +1,120 @@
+<!-- Log In Modal Button  --> 
+<!-- <div class="row">
+  <div class="col s12 m6 l3">
+    <a id="logIn" class="waves-effect waves-light btn modal-trigger" href="#modalLogIn">Log In</a>
+  </div>
+ Sign Up Modal Button 
+  <div class="col s12 m6 l3">
+    <a id="signUp" class="waves-effect waves-light btn modal-trigger" href="#modalSingUp">Sign Up</a>
+  </div>
+</div> -->
+<!-- This is the Log In Modal -->
+
+<div id="modalLogIn" class="modal">
+    <div class="modal-content">
+
+      <h4>Please Log In</h4>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="Log_In_email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="Log_In_password" type="password" class="validate">
+          <label for="password">Password</label>
+      	</div>
+      </div>
+
+   	</div>
+   	
+   	<div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
+
+
+
+<!-- This is the sign in modal -->
+
+<div id="modalSignUp" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    
+      <h4>Please Sign In</h4>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+      	</div>
+
+        <div class="input-field col s6">
+          <input id="confirm_password" type="password" class="validate">
+          <label for="confirm_password">Confirm Password</label>
+      	</div>
+      </div>
+
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose Your NFL Team(s)</option>
+          <option value="1">Patriots</option>
+          <option value="2">Panthers</option>
+          <option value="3">Cardinals</option>
+        </select>
+        <label>Multiple Football Selection</label>
+      </div>
+
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose Your NBA Team(s)</option>
+          <option value="1">Lakers</option>
+          <option value="2">Warriors</option>
+          <option value="3">Cavaliers</option>
+        </select>
+        <label>Multiple Basketball Selection</label>
+      </div>
+
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose Your MLB Team(s)</option>
+          <option value="1">Yankees</option>
+          <option value="2">Diamondbacks</option>
+          <option value="3">Nationals</option>
+        </select>
+        <label>Multiple Baseball Selection</label>
+      </div>
+
+   	</div>
+
+   	<div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
+<script>
+  $(document).ready(function() {
+      $('.modal').modal();
+      $('select').material_select();
+  });
+</script>
+ 
