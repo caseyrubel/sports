@@ -10,7 +10,7 @@ const googleNews = new GoogleNewsRss();
 // =============================================================
 router.get("/", function(req, res) {
     googleNews
-    .search("nfl", 10, "en")
+    .search("sports", 10, "en")
     .then(resp = (data) => {
         var hbsObject = {news: data};
         res.render("index", hbsObject);
