@@ -41,44 +41,45 @@
 <!-- This is the sign in modal -->
 
 <div id="modalSignUp" class="modal modal-fixed-footer">
+  <form action="/" method="POST">
     <div class="modal-content">
     
-      <h4>Please Sign In</h4>
+      <h4>Create Account</h4>
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
+          <input name="first_name" id="first_name" type="text" class="validate">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+          <input name="last_name" id="last_name" type="text" class="validate">
           <label for="last_name">Last Name</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
+          <input name="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s6">
-          <input id="password" type="password" class="validate">
+          <input name="password" id="password" type="password" class="validate">
           <label for="password">Password</label>
       	</div>
 
         <div class="input-field col s6">
-          <input id="confirm_password" type="password" class="validate">
+          <input name="confirm_password" id="confirm_password" type="password" class="validate">
           <label for="confirm_password">Confirm Password</label>
       	</div>
       </div>
 
       <div class="input-field col s12">
-        <select multiple>
+        <select name="teamOne" multiple>
           <option value="" disabled selected>Choose Your NFL Team(s)</option>
-          <option value="1">Patriots</option>
+          <option value="Patriots">Patriots</option>
           <option value="2">Panthers</option>
           <option value="3">Cardinals</option>
         </select>
@@ -86,9 +87,9 @@
       </div>
 
       <div class="input-field col s12">
-        <select multiple>
+        <select name="teamTwo" multiple>
           <option value="" disabled selected>Choose Your NBA Team(s)</option>
-          <option value="1">Lakers</option>
+          <option value="Lakers">Lakers</option>
           <option value="2">Warriors</option>
           <option value="3">Cavaliers</option>
         </select>
@@ -96,9 +97,9 @@
       </div>
 
       <div class="input-field col s12">
-        <select multiple>
+        <select name="teamThree" multiple>
           <option value="" disabled selected>Choose Your MLB Team(s)</option>
-          <option value="1">Yankees</option>
+          <option value="Yankees">Yankees</option>
           <option value="2">Diamondbacks</option>
           <option value="3">Nationals</option>
         </select>
@@ -108,8 +109,9 @@
    	</div>
 
    	<div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+      <button href="/sign" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</button>
     </div>
+  </form>
 </div>
 <script>
   $(document).ready(function() {
