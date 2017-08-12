@@ -1,15 +1,30 @@
 
 <div class="navbar-fixed">
   <nav class="grey darken-4">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Sport Simple</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="">News</a></li>
-          <!-- <li><a href="">My Teams</a></li> -->
-          <!-- <li><a href="">Log Out</a></li> -->
-          <li><a href="#modalLogIn">Log In</a></li>
-          <li><a href="#modalSignUp">Sign Up</a></li>
-        </ul>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Sport Simple</a>
+        <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">News</a></li>
+            <!-- <li><a href="">My Teams</a></li> -->
+            <!-- <li><a href="">Log Out</a></li> -->
+            <li><a href="#modalLogIn">Log In</a></li>
+            <li><a href="#modalSignUp">Sign Up</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-menu">
+            <li>
+              <div class="userView">
+                <a href="#!user"><img class="circle" src="http://lorempixel.com/output/people-q-c-640-480-9.jpg" alt="User Image Sidenav"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">email@email.com</span></a>
+              </div>
+            </li>
+            <li><a href="#">News</a></li>
+            <li><a href="#modalLogIn">Log In</a></li>
+            <li><a href="#modalSignUp">Sign Up</a></li>
+          </ul>
+      </div>
     </div>
   </nav>
 </div>
@@ -17,7 +32,7 @@
 <div class="container">
 <div class="row">
   <!-- Main content -->
-  <div class="col s12 m12 l12"> 
+  <div class="col s12"> 
     
     <h3 class="center-align">News</h3>
   
@@ -70,9 +85,13 @@
 <footer class="page-footer grey darken-4">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
+      <div class="col l12 s12">
         <h5 class="white-text">Sport Simple</h5>
         <p class="grey-text text-lighten-4"></p>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
       </div>
     </div>
   </div>
